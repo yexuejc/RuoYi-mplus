@@ -74,11 +74,18 @@
         </dependency>
         
         <!-- 代码生成-->
+<!--        <dependency>-->
+<!--            <groupId>com.ruoyi</groupId>-->
+<!--            <artifactId>ruoyi-generator</artifactId>-->
+<!--        </dependency>-->
+
+        <!--######################################测试部分######################################-->
         <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-generator</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        
+        <!--######################################测试部分######################################-->
     </dependencies>
 
     <build>

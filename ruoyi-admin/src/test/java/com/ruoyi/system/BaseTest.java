@@ -13,11 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2018/12/13 11:40
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
+@SpringBootTest
 public class BaseTest {
 
     public static String testId = "99999999999999999999999999999999";
     public static long longTestId = 123456L;
+    public static long longTestId2 = 789456L;
     public static int intTestId = 999;
 
 }

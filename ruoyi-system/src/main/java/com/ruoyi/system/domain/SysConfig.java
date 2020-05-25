@@ -28,7 +28,7 @@ public class SysConfig extends BaseEntity {
     /**
      * 参数主键
      */
-    @TableId(value = "config_id", type = IdType.AUTO)
+    @TableId(value = "config_id", type = IdType.ASSIGN_ID)
     private Long configId;
 
     /**

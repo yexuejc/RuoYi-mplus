@@ -1,46 +1,41 @@
 package com.ruoyi.system.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
- * 用户和岗位关联 sys_user_post
- * 
- * @author ruoyi
+ * <p>
+ * 用户与岗位关联表
+ * </p>
+ *
+ * @author yexuejc
+ * @since 2020-05-22
  */
-public class SysUserPost
-{
-    /** 用户ID */
+@Data
+@Accessors(chain = true)
+@TableName("sys_user_post")
+public class SysUserPost implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 用户ID
+     */
+    @TableId(value = "user_id", type = IdType.ASSIGN_ID)
     private Long userId;
-    
-    /** 岗位ID */
+
+    /**
+     * 岗位ID
+     */
+    @TableField("post_id")
     private Long postId;
 
-    public Long getUserId()
-    {
-        return userId;
-    }
 
-    public void setUserId(Long userId)
-    {
-        this.userId = userId;
-    }
-
-    public Long getPostId()
-    {
-        return postId;
-    }
-
-    public void setPostId(Long postId)
-    {
-        this.postId = postId;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("userId", getUserId())
-            .append("postId", getPostId())
-            .toString();
-    }
 }
