@@ -1,5 +1,11 @@
-##  基于Ruoyi4.2.0(提交版本) 
-
+##  基于Ruoyi4.2.0(提交版本30b3909fc409a47710c5df0c869595cf54d7be4a) 
+> mybatis plus 版本 3.3.1
+> 没有做大的修改，只是替换为mybatis plus
+> 增加了一个[BaseDO](ruoyi-common/src/main/java/com/ruoyi/common/core/domain/BaseDO.java)
+> 增加了一个[BasePlusEntity](ruoyi-common/src/main/java/com/ruoyi/common/core/domain/BasePlusEntity.java)
+> 替换了所以实体
+> 修改了*Mapper.xml的兼容性
+> 增加了逻辑删除字段 `is_del`和乐观锁字段`version`
 
 ## 平台简介
 
