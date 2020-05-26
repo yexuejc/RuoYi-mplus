@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +17,9 @@ import java.util.Map;
  * @author: yexuejc
  * @date: 2020-05-22 16:02:02
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Accessors(chain = true)
 public class BasePlusEntity extends BaseDO {
 
     /**

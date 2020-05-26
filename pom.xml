@@ -33,11 +33,17 @@
         <velocity.version>1.7</velocity.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
         <lombok.vaersion>1.18.12</lombok.vaersion>
+        <yexuejc-base.version>1.4.0</yexuejc-base.version>
     </properties>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>top.yexuejc</groupId>
+                <artifactId>yexuejc-base</artifactId>
+                <version>${yexuejc-base.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -227,6 +233,8 @@
         <module>ruoyi-quartz</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
+        <module>frp-db-mplus</module>
+        <module>frp-web-admin</module>
     </modules>
     <packaging>pom</packaging>
 

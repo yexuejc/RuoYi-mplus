@@ -114,6 +114,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>top.yexuejc</groupId>
+            <artifactId>yexuejc-base</artifactId>
+        </dependency>
 
     </dependencies>
 

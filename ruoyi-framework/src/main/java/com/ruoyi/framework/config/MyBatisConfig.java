@@ -26,7 +26,7 @@
 // * Mybatis支持*匹配扫描包
 // *
 // * @author ruoyi
-// * @deprecated 使用 mybatis plus 替代
+// * @deprecated 使用 mybatis plus (com.ruoyi.common.config.MybatisPlusConfig) 替代
 // */
 ////@Configuration
 //@Deprecated
