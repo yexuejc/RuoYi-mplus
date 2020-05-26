@@ -1,15 +1,7 @@
 package com.ruoyi.common.core.controller;
 
-import java.beans.PropertyEditorSupport;
-import java.util.Date;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.AjaxResult.Type;
 import com.ruoyi.common.core.page.PageDomain;
@@ -19,6 +11,17 @@ import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.sql.SqlUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.beans.PropertyEditorSupport;
+import java.util.Date;
+import java.util.List;
 
 /**
  * web层通用数据处理
@@ -57,6 +60,7 @@ public class BaseController
         if (StringUtils.isNotNull(pageNum) && StringUtils.isNotNull(pageSize))
         {
             String orderBy = SqlUtil.escapeOrderBySql(pageDomain.getOrderBy());
+            PageHelper.startPage(pageNum, pageSize, orderBy);
 //TODO mybatis            PageHelper.startPage(pageNum, pageSize, orderBy);
         }
     }
@@ -70,6 +74,7 @@ public class BaseController
         if (StringUtils.isNotEmpty(pageDomain.getOrderBy()))
         {
             String orderBy = SqlUtil.escapeOrderBySql(pageDomain.getOrderBy());
+            PageHelper.orderBy(orderBy);
 //TODO mybatis            PageHelper.orderBy(orderBy);
         }
     }
@@ -107,6 +112,7 @@ public class BaseController
         TableDataInfo rspData = new TableDataInfo();
         rspData.setCode(0);
         rspData.setRows(list);
+        rspData.setTotal(new PageInfo(list).getTotal());
 //TODO mybatis        rspData.setTotal(new PageInfo(list).getTotal());
         return rspData;
     }
