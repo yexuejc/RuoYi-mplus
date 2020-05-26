@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.core.incrementer.IKeyGenerator;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
 import com.baomidou.mybatisplus.extension.incrementer.PostgreKeyGenerator;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -72,5 +73,14 @@ public class MybatisPlusConfig {
         return new DefaultSqlInjector();
     }
 
+    /**
+     * 乐观锁插件
+     * @return
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
 
 }

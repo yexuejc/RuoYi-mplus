@@ -26,19 +26,19 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
     /**
      * 创建时间
      */
-    protected String CRT_TIME_CLO = "crtTime";
+    protected String crtTimeColumn = "createTime";
     /**
      * 创建人
      */
-    protected String CRT_BY_CLO = "crtBy";
+    protected String crtByColumn = "createBy";
     /**
      * 最后操作时间
      */
-    protected String UPDATE_TIME_CLO = "mdfyTime";
+    protected String updateTimeColumn = "updateTime";
     /**
      * 最后操作人
      */
-    protected String UPDATE_BY_CLO = "mdfyBy";
+    protected String updateByColumn = "updateBy";
 
     /**
      * 设置操作者
@@ -63,11 +63,11 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
 //        LogUtil.bizLogger.debug("新增的时候干点不可描述的事情");
         try {
             //创建人和创建时间
-            Object crtTime = metaObject.getValue(CRT_TIME_CLO);
+            Object crtTime = metaObject.getValue(crtTimeColumn);
             if (crtTime == null) {
-                metaObject.setValue(CRT_TIME_CLO, new Date());
+                metaObject.setValue(crtTimeColumn, new Date());
             }
-            Object crtBy = metaObject.getValue(CRT_BY_CLO);
+            Object crtBy = metaObject.getValue(crtByColumn);
             if (crtBy == null) {
                 Object operId = null;
                 try {
@@ -78,20 +78,20 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
                 } catch (Exception e) {
                 } finally {
                     if (operId != null) {
-                        metaObject.setValue(CRT_BY_CLO, operId);
+                        metaObject.setValue(crtByColumn, operId);
                     } else {
-                        metaObject.setValue(CRT_BY_CLO, "mp-insert");
+                        metaObject.setValue(crtByColumn, "mp-insert");
                     }
                 }
             }
 
             //修改人和修改建时间
-            Object mdfyTime = metaObject.getValue(UPDATE_TIME_CLO);
+            Object mdfyTime = metaObject.getValue(updateTimeColumn);
             if (mdfyTime == null) {
-                metaObject.setValue(UPDATE_TIME_CLO, new Date());
+                metaObject.setValue(updateTimeColumn, new Date());
             }
 
-            Object mdfyBy = metaObject.getValue(UPDATE_BY_CLO);
+            Object mdfyBy = metaObject.getValue(updateByColumn);
             if (mdfyBy == null) {
                 Object operId = null;
                 try {
@@ -103,9 +103,9 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
 
                 } finally {
                     if (operId != null) {
-                        metaObject.setValue(UPDATE_BY_CLO, operId);
+                        metaObject.setValue(updateByColumn, operId);
                     } else {
-                        metaObject.setValue(UPDATE_BY_CLO, "mp-insert");
+                        metaObject.setValue(updateByColumn, "mp-insert");
                     }
                 }
             }
@@ -118,25 +118,25 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
 //        LogUtil.bizLogger.debug("更新的时候干点不可描述的事情");
         try {
-            Object mdfyTime = this.getFieldValByName("mdfyTime", metaObject);
+            Object mdfyTime = this.getFieldValByName(updateTimeColumn, metaObject);
             if (mdfyTime == null) {
-                this.setFieldValByName("mdfyTime", new Date(), metaObject);
+                this.setFieldValByName(updateTimeColumn, new Date(), metaObject);
             }
-            Object crtBy = this.getFieldValByName("mdfyBy", metaObject);
+            Object crtBy = this.getFieldValByName(updateByColumn, metaObject);
             if (crtBy == null) {
                 Object operId = null;
                 try {
                     operId = getOperId();
                     if (operId == null) {
-                        operId = this.getFieldValByName("mchId", metaObject);
+                        operId = this.getFieldValByName("userId", metaObject);
                     }
                 } catch (Exception e) {
 
                 } finally {
                     if (operId != null) {
-                        this.setFieldValByName("mdfyBy", operId, metaObject);
+                        this.setFieldValByName(updateByColumn, operId, metaObject);
                     } else {
-                        this.setFieldValByName("mdfyBy", "mp-update", metaObject);
+                        this.setFieldValByName(updateByColumn, "mp-update", metaObject);
                     }
                 }
             }
@@ -144,6 +144,5 @@ public class MplusMetaObjectHandler implements MetaObjectHandler {
 
         }
     }
-
 
 }
