@@ -31,7 +31,7 @@ public class BasePlusEntity extends BaseDO {
 
     @TableField(value = "version", update = "%s+1", fill = FieldFill.INSERT_UPDATE)
     @Version
-    private Long version = 0L;
+    private Long version;
 
     /**
      * 搜索值
