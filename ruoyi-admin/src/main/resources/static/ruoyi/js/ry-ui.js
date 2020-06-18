@@ -542,6 +542,7 @@ var table = {
             	var options = $.extend(defaults, options);
             	table.options = options;
             	table.config[options.id] = options;
+            	$.table.initEvent();
                 $.bttTable = $('#' + options.id).bootstrapTreeTable({
                 	code: options.code,                                 // 用于设置父子关系
         		    parentCode: options.parentCode,                     // 用于设置父子关系
@@ -561,7 +562,8 @@ var table = {
         			expandAll: options.expandAll,                       // 是否全部展开
         			expandFirst: options.expandFirst,                   // 是否默认第一级展开--expandAll为false时生效
         	        columns: options.columns,                           // 显示列信息（*）
-        	        responseHandler: $.treeTable.responseHandler        // 当所有数据被加载时触发处理函数
+        	        responseHandler: $.treeTable.responseHandler,       // 在加载服务器发送来的数据之前处理函数
+        	        onLoadSuccess: $.table.onLoadSuccess                // 当所有数据被加载时触发处理函数
         	    });
             },
             // 条件查询
@@ -1263,9 +1265,11 @@ var table = {
         			var treeId = $("#treeId").val();
         			tree = $.fn.zTree.init($("#" + options.id), setting, data);
         			$._tree = tree;
-        			var nodes = tree.getNodesByParam("level", options.expandLevel - 1);
-        			for (var i = 0; i < nodes.length; i++) {
-        				tree.expandNode(nodes[i], true, false, false);
+        			for (var i = 0; i < options.expandLevel; i++) {
+        			    var nodes = tree.getNodesByParam("level", i);
+        			    for (var j = 0; j < nodes.length; j++) {
+        			        tree.expandNode(nodes[j], true, false, false);
+        			    }
         			}
         			var node = tree.getNodesByParam("id", treeId, null)[0];
         			$.tree.selectByIdName(treeId, node);
