@@ -121,8 +121,8 @@ create table sys_role (
 -- ----------------------------
 -- 初始化-角色信息表数据
 -- ----------------------------
-insert into sys_role values('1', '管理员',   'admin',  1, 1, '0', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '管理员');
-insert into sys_role values('2', '普通角色', 'common', 2, 2, '0', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '普通角色');
+insert into sys_role values('1', '系统管理员', 'admin',  1, 1, '0', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统管理员');
+insert into sys_role values('2', '普通角色',   'common', 2, 2, '0', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '普通角色');
 
 
 -- ----------------------------
@@ -648,22 +648,24 @@ insert into sys_notice values('2', '维护通知：2018-07-01 若依系统凌晨
 -- ----------------------------
 drop table if exists gen_table;
 create table gen_table (
-  table_id          bigint(20)      not null auto_increment    comment '编号',
-  table_name        varchar(200)    default ''                 comment '表名称',
-  table_comment     varchar(500)    default ''                 comment '表描述',
-  class_name        varchar(100)    default ''                 comment '实体类名称',
-  tpl_category      varchar(200)    default 'crud'             comment '使用的模板（crud单表操作 tree树表操作）',
-  package_name      varchar(100)                               comment '生成包路径',
-  module_name       varchar(30)                                comment '生成模块名',
-  business_name     varchar(30)                                comment '生成业务名',
-  function_name     varchar(50)                                comment '生成功能名',
-  function_author   varchar(50)                                comment '生成功能作者',
-  options           varchar(1000)                              comment '其它生成选项',
-  create_by         varchar(64)     default ''                 comment '创建者',
-  create_time 	    datetime                                   comment '创建时间',
-  update_by         varchar(64)     default ''                 comment '更新者',
-  update_time       datetime                                   comment '更新时间',
-  remark            varchar(500)    default null               comment '备注',
+  table_id             bigint(20)      not null auto_increment    comment '编号',
+  table_name           varchar(200)    default ''                 comment '表名称',
+  table_comment        varchar(500)    default ''                 comment '表描述',
+  sub_table_name       varchar(64)     default null               comment '关联子表的表名',
+  sub_table_fk_name    varchar(64)     default null               comment '子表关联的外键名',
+  class_name           varchar(100)    default ''                 comment '实体类名称',
+  tpl_category         varchar(200)    default 'crud'             comment '使用的模板（crud单表操作 tree树表操作 sub主子表操作）',
+  package_name         varchar(100)                               comment '生成包路径',
+  module_name          varchar(30)                                comment '生成模块名',
+  business_name        varchar(30)                                comment '生成业务名',
+  function_name        varchar(50)                                comment '生成功能名',
+  function_author      varchar(50)                                comment '生成功能作者',
+  options              varchar(1000)                              comment '其它生成选项',
+  create_by            varchar(64)     default ''                 comment '创建者',
+  create_time 	       datetime                                   comment '创建时间',
+  update_by            varchar(64)     default ''                 comment '更新者',
+  update_time          datetime                                   comment '更新时间',
+  remark               varchar(500)    default null               comment '备注',
   primary key (table_id)
 ) engine=innodb auto_increment=1 comment = '代码生成业务表';
 
