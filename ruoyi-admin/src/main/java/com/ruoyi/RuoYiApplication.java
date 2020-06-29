@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
  *
  * @author ruoyi
  */
-@ComponentScan(basePackages = {"top.yexuejc.frp", "com.ruoyi"})
+//@ComponentScan(basePackages = {"top.yexuejc.frp", "com.ruoyi"})
 @MapperScan(basePackages = {"com.ruoyi.**.domain", "top.yexuejc.frp.db"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class RuoYiApplication {
