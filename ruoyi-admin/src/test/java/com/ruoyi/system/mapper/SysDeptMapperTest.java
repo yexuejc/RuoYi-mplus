@@ -48,7 +48,6 @@ public class SysDeptMapperTest extends BaseTest implements IMapperTest {
         entity.setEmail("test");
         entity.setStatus("0");
         entity.setDelFlag("0");
-        entity.setRemark("xxxxx");
 
 
         int insert = sysDeptMapper.insert(entity);

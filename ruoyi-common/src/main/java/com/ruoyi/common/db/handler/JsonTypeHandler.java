@@ -1,6 +1,6 @@
 package com.ruoyi.common.db.handler;
 
-import com.yexuejc.base.util.JsonUtil;
+import com.ruoyi.common.utils.JsonUtil;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 

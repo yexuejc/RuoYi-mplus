@@ -24,6 +24,10 @@ import lombok.experimental.Accessors;
 public class SysPost extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 岗位ID

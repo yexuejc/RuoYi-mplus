@@ -31,6 +31,10 @@ public class SysRole extends BaseEntity {
     public SysRole(Long roleId) {
         this.roleId = roleId;
     }
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 角色ID

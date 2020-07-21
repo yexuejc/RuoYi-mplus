@@ -25,6 +25,10 @@ import lombok.experimental.Accessors;
 public class SysDictData extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 字典编码

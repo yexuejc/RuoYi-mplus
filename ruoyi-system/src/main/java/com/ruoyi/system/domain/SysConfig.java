@@ -24,6 +24,10 @@ import lombok.experimental.Accessors;
 public class SysConfig extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 参数主键

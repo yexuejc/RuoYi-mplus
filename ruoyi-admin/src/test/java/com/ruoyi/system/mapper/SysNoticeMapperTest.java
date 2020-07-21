@@ -40,7 +40,6 @@ public class SysNoticeMapperTest extends BaseTest implements IMapperTest {
         entity.setNoticeType("1");
         entity.setNoticeContent("test");
         entity.setStatus("1");
-        entity.setRemark("test");
 
         int insert = sysNoticeMapper.insert(entity);
         Assert.assertEquals(insert, 1);

@@ -20,6 +20,7 @@ import java.util.Date;
 @Data
 @Accessors(chain = true)
 public class BaseDO implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 创建者
      */
@@ -45,11 +46,6 @@ public class BaseDO implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(value = "update_time", update = "now()", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
-
-    /**
-     * 备注
-     */
-    private String remark;
 
 
 }

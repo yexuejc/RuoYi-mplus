@@ -41,7 +41,6 @@ public class SysPostMapperTest  extends BaseTest implements IMapperTest {
         entity.setPostSort(0);
         entity.setStatus("1");
 
-        entity.setRemark("test");
 
         int insert = sysPostMapper.insert(entity);
         Assert.assertEquals(insert, 1);

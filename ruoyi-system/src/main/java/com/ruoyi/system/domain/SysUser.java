@@ -37,6 +37,12 @@ public class SysUser extends BaseEntity {
         this.userId = userId;
     }
 
+
+    /**
+     * 备注
+     */
+    private String remark;
+
     /**
      * 用户ID
      */

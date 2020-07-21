@@ -47,7 +47,6 @@ public class SysLogininforMapperTest extends BaseTest implements IMapperTest {
         entity.setMsg("1");
         entity.setLoginTime(new Date());
 
-        entity.setRemark("1");
 
         int insert = sysLogininforMapper.insert(entity);
         Assert.assertEquals(insert, 1);

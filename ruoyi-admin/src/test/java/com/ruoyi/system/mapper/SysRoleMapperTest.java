@@ -43,8 +43,6 @@ public class SysRoleMapperTest  extends BaseTest implements IMapperTest {
         entity.setStatus("1");
         entity.setDelFlag("1");
 
-        entity.setRemark("test");
-
         int insert = sysRoleMapper.insert(entity);
         Assert.assertEquals(insert, 1);
     }

@@ -27,6 +27,10 @@ import java.util.List;
 public class SysMenu extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 菜单ID

@@ -54,8 +54,6 @@ public class SysOperLogMapperTest  extends BaseTest implements IMapperTest {
         entity.setErrorMsg("test");
         entity.setOperTime(new Date());
 
-        entity.setRemark("test");
-
         int insert = sysOperLogMapper.insert(entity);
         Assert.assertEquals(insert, 1);
     }

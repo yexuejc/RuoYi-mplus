@@ -45,7 +45,6 @@ public class SysMenuMapperTest extends BaseTest implements IMapperTest {
         entity.setVisible("0");
         entity.setPerms("test");
         entity.setIcon("test");
-        entity.setRemark("test");
 
         int insert = sysMenuMapper.insert(entity);
         Assert.assertEquals(insert, 1);

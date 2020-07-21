@@ -49,8 +49,6 @@ public class SysUserOnlineMapperTest  extends BaseTest implements IMapperTest {
         entity.setLastAccessTime(new Date());
         entity.setExpireTime(10000L);
 
-        entity.setRemark("test");
-
         int insert = sysUserOnlineMapper.insert(entity);
         Assert.assertEquals(insert, 1);
     }

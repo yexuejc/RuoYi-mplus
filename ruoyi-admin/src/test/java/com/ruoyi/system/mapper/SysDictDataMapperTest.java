@@ -44,7 +44,6 @@ public class SysDictDataMapperTest extends BaseTest implements IMapperTest {
         entity.setListClass("text");
         entity.setIsDefault("Y");
         entity.setStatus("0");
-        entity.setRemark("text");
 
         int insert = sysDictDataMapper.insert(entity);
         Assert.assertEquals(insert, 1);
