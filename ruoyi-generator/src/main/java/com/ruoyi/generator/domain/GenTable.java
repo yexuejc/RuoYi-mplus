@@ -3,6 +3,13 @@ package com.ruoyi.generator.domain;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 import org.apache.commons.lang3.ArrayUtils;
 import com.ruoyi.common.constant.GenConstants;
 import com.ruoyi.common.core.domain.BaseEntity;
@@ -10,14 +17,22 @@ import com.ruoyi.common.utils.StringUtils;
 
 /**
  * 业务表 gen_table
- * 
+ *
  * @author ruoyi
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Accessors(chain = true)
+@TableName("gen_table")
 public class GenTable extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * 备注
+     */
+    private String remark;
     /** 编号 */
+    @TableId(value = "table_id", type = IdType.ASSIGN_ID)
     private Long tableId;
 
     /** 表名称 */
